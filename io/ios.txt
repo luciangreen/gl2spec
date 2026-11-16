@@ -1,0 +1,402 @@
+gl2spec: 200 inputs and outputs, from real runs (io/ios.pl has the same as Prolog facts).
+
+1. spec([sort,double,idea,mind,double,last,time])
+   => [sort,double,double,last]
+2. run([first,reverse,double,reverse,sort], [3,5,9,6,1])
+   => [6]
+3. clause_text(algo, [double])
+   => "algo(A,Out) :- step(double,A,B), Out = B."
+4. spec([unique,order,double,time,first,reverse,time,double])
+   => [unique,sort,double,first,reverse,double]
+5. run([sum], [])
+   => [0]
+6. clause_text(algo, [sort,double,sort,last,sort])
+   => "algo(A,Out) :- step(sort,A,B), step(double,B,C), step(sort,C,D), step(last,D,E), step(sort,E,F), Out = F."
+7. spec([sum,mind,last,time,unique,idea])
+   => [sum,last,unique]
+8. run([sort,sum,first,last], [])
+   => [0]
+9. clause_text(algo, [last,first,sort,first])
+   => "algo(A,Out) :- step(last,A,B), step(first,B,C), step(sort,C,D), step(first,D,E), Out = E."
+10. spec([music,meditation,reverse,idea,unique])
+   => [reverse,unique]
+11. run([], [4])
+   => [4]
+12. clause_text(algo, [sort,sort])
+   => "algo(A,Out) :- step(sort,A,B), step(sort,B,C), Out = C."
+13. spec([idea,mind,unique,meditation,idea,first])
+   => [unique,first]
+14. run([sum,unique,sum], [])
+   => [0]
+15. clause_text(algo, [sum])
+   => "algo(A,Out) :- step(sum,A,B), Out = B."
+16. spec([music,music,music])
+   => []
+17. run([sort], [4,9])
+   => [4,9]
+18. clause_text(algo, [double,sum,double,sort,count])
+   => "algo(A,Out) :- step(double,A,B), step(sum,B,C), step(double,C,D), step(sort,D,E), step(count,E,F), Out = F."
+19. spec([mind])
+   => []
+20. run([reverse], [])
+   => []
+21. clause_text(algo, [count])
+   => "algo(A,Out) :- step(count,A,B), Out = B."
+22. spec([meditation,time,idea,idea,double])
+   => [double]
+23. run([last], [])
+   => []
+24. clause_text(algo, [double,sort])
+   => "algo(A,Out) :- step(double,A,B), step(sort,B,C), Out = C."
+25. spec([sum,sort,sort,time])
+   => [sum,sort,sort]
+26. run([reverse,sort,last,count,sum], [0])
+   => [1]
+27. clause_text(algo, [sum])
+   => "algo(A,Out) :- step(sum,A,B), Out = B."
+28. spec([music,last,time,mind,meditation,mind,music])
+   => [last]
+29. run([unique], [8,5,5])
+   => [5,8]
+30. clause_text(algo, [sum])
+   => "algo(A,Out) :- step(sum,A,B), Out = B."
+31. spec([double,mind])
+   => [double]
+32. run([unique], [8,8])
+   => [8]
+33. clause_text(algo, [count,sort,sort,last,double])
+   => "algo(A,Out) :- step(count,A,B), step(sort,B,C), step(sort,C,D), step(last,D,E), step(double,E,F), Out = F."
+34. spec([sort,idea,idea,meditation,unique,meditation,order])
+   => [sort,unique,sort]
+35. run([reverse,last,sort,count], [9])
+   => [1]
+36. clause_text(algo, [reverse,first,first,sort,sort])
+   => "algo(A,Out) :- step(reverse,A,B), step(first,B,C), step(first,C,D), step(sort,D,E), step(sort,E,F), Out = F."
+37. spec([sum])
+   => [sum]
+38. run([last,reverse], [2,6,9,1])
+   => [1]
+39. clause_text(algo, [unique,last])
+   => "algo(A,Out) :- step(unique,A,B), step(last,B,C), Out = C."
+40. spec([apple,sort,mind])
+   => [sort]
+41. run([sum,unique], [4,7])
+   => [11]
+42. clause_text(algo, [unique])
+   => "algo(A,Out) :- step(unique,A,B), Out = B."
+43. spec([order,double,unique,logic,time,double,unique])
+   => [sort,double,unique,double,unique]
+44. run([unique], [])
+   => []
+45. clause_text(algo, [count,first])
+   => "algo(A,Out) :- step(count,A,B), step(first,B,C), Out = C."
+46. spec([double,first,idea,music,mind,sum,reverse,sum])
+   => [double,first,sum,reverse,sum]
+47. run([], [3,1,6,4])
+   => [3,1,6,4]
+48. clause_text(algo, [count,sort])
+   => "algo(A,Out) :- step(count,A,B), step(sort,B,C), Out = C."
+49. spec([logic,count,music,mind,count,logic,mind,unique])
+   => [count,count,unique]
+50. run([sum,sum], [0])
+   => [0]
+51. clause_text(algo, [last,unique])
+   => "algo(A,Out) :- step(last,A,B), step(unique,B,C), Out = C."
+52. spec([first])
+   => [first]
+53. run([first], [8,9,1])
+   => [8]
+54. clause_text(algo, [sum,count,sum])
+   => "algo(A,Out) :- step(sum,A,B), step(count,B,C), step(sum,C,D), Out = D."
+55. spec([first,reverse,reverse,sum])
+   => [first,reverse,reverse,sum]
+56. run([first,double,sum], [])
+   => [0]
+57. clause_text(algo, [last,reverse,last,unique])
+   => "algo(A,Out) :- step(last,A,B), step(reverse,B,C), step(last,C,D), step(unique,D,E), Out = E."
+58. spec([last,count,music])
+   => [last,count]
+59. run([first,sort,double], [7,4])
+   => [14]
+60. clause_text(algo, [unique,reverse])
+   => "algo(A,Out) :- step(unique,A,B), step(reverse,B,C), Out = C."
+61. spec([reverse,mind,unique])
+   => [reverse,unique]
+62. run([count,reverse,first], [4,9,6,1,7])
+   => [5]
+63. clause_text(algo, [reverse,unique,first])
+   => "algo(A,Out) :- step(reverse,A,B), step(unique,B,C), step(first,C,D), Out = D."
+64. spec([count,reverse,sort,meditation,meditation,last,mind,idea])
+   => [count,reverse,sort,last]
+65. run([sort,sum,sum,sort,reverse], [2])
+   => [2]
+66. clause_text(algo, [reverse])
+   => "algo(A,Out) :- step(reverse,A,B), Out = B."
+67. spec([apple,music,sort,first,sum,first,order,last])
+   => [sort,first,sum,first,sort,last]
+68. run([sort,reverse,last,last], [7])
+   => [7]
+69. clause_text(algo, [])
+   => "algo(A,Out) :- true, Out = A."
+70. spec([mind,order,sum,last,reverse,order,mind])
+   => [sort,sum,last,reverse,sort]
+71. run([double,count,sum], [9])
+   => [1]
+72. clause_text(algo, [unique,last])
+   => "algo(A,Out) :- step(unique,A,B), step(last,B,C), Out = C."
+73. spec([mind,time,unique])
+   => [unique]
+74. run([], [5,1,4,3,6])
+   => [5,1,4,3,6]
+75. clause_text(algo, [sort,sort,sum])
+   => "algo(A,Out) :- step(sort,A,B), step(sort,B,C), step(sum,C,D), Out = D."
+76. spec([meditation,mind,idea,logic,order,music,first,idea])
+   => [sort,first]
+77. run([sort,reverse,sum,first], [9,5])
+   => [14]
+78. clause_text(algo, [count,last,unique,sort])
+   => "algo(A,Out) :- step(count,A,B), step(last,B,C), step(unique,C,D), step(sort,D,E), Out = E."
+79. spec([order,logic,sort,reverse,unique,time,time])
+   => [sort,sort,reverse,unique]
+80. run([sort,unique,double,unique], [])
+   => []
+81. clause_text(algo, [first,reverse])
+   => "algo(A,Out) :- step(first,A,B), step(reverse,B,C), Out = C."
+82. spec([meditation,reverse,count,sum,reverse])
+   => [reverse,count,sum,reverse]
+83. run([], [7,7,5,4,1])
+   => [7,7,5,4,1]
+84. clause_text(algo, [reverse,first,first,unique,reverse,double,count])
+   => "algo(A,Out) :- step(reverse,A,B), step(first,B,C), step(first,C,D), step(unique,D,E), step(reverse,E,F), step(double,F,G), step(count,G,H), Out = H."
+85. spec([meditation])
+   => []
+86. run([sort], [])
+   => []
+87. clause_text(algo, [double])
+   => "algo(A,Out) :- step(double,A,B), Out = B."
+88. spec([unique,music,meditation,mind])
+   => [unique]
+89. run([last,first,double,double], [1])
+   => [4]
+90. clause_text(algo, [last,last,double])
+   => "algo(A,Out) :- step(last,A,B), step(last,B,C), step(double,C,D), Out = D."
+91. spec([sort,sum,idea,meditation,meditation])
+   => [sort,sum]
+92. run([unique], [2,0,7])
+   => [0,2,7]
+93. clause_text(algo, [unique,sort])
+   => "algo(A,Out) :- step(unique,A,B), step(sort,B,C), Out = C."
+94. spec([last,idea,order,music,music,apple,order,count])
+   => [last,sort,sort,count]
+95. run([last], [8,6,7,6,8])
+   => [8]
+96. clause_text(algo, [count])
+   => "algo(A,Out) :- step(count,A,B), Out = B."
+97. spec([count,last,unique,sum])
+   => [count,last,unique,sum]
+98. run([sort,first], [])
+   => []
+99. clause_text(algo, [unique,sort,sort,last,first])
+   => "algo(A,Out) :- step(unique,A,B), step(sort,B,C), step(sort,C,D), step(last,D,E), step(first,E,F), Out = F."
+100. spec([sum,apple,mind,sum,logic,reverse,reverse])
+   => [sum,sum,reverse,reverse]
+101. run([sort,last], [0,4])
+   => [4]
+102. clause_text(algo, [unique,unique,last,last])
+   => "algo(A,Out) :- step(unique,A,B), step(unique,B,C), step(last,C,D), step(last,D,E), Out = E."
+103. spec([double,double,sum,unique,reverse,mind,meditation])
+   => [double,double,sum,unique,reverse]
+104. run([sort], [4,5,0,5])
+   => [0,4,5,5]
+105. clause_text(algo, [count,count,double,double])
+   => "algo(A,Out) :- step(count,A,B), step(count,B,C), step(double,C,D), step(double,D,E), Out = E."
+106. spec([reverse,music,count,last,music,first])
+   => [reverse,count,last,first]
+107. run([count,sort,last], [4,9,7,7])
+   => [4]
+108. clause_text(algo, [])
+   => "algo(A,Out) :- true, Out = A."
+109. spec([reverse,idea,logic,meditation,last])
+   => [reverse,last]
+110. run([reverse,sort,reverse,first], [9,8,6,6])
+   => [9]
+111. clause_text(algo, [count,count,sort])
+   => "algo(A,Out) :- step(count,A,B), step(count,B,C), step(sort,C,D), Out = D."
+112. spec([idea,time])
+   => []
+113. run([sort,sum,reverse,last], [])
+   => [0]
+114. clause_text(algo, [sort,first,sort,double,sum])
+   => "algo(A,Out) :- step(sort,A,B), step(first,B,C), step(sort,C,D), step(double,D,E), step(sum,E,F), Out = F."
+115. spec([last])
+   => [last]
+116. run([sum,last,count,first,sum], [3,6,1])
+   => [1]
+117. clause_text(algo, [first,double])
+   => "algo(A,Out) :- step(first,A,B), step(double,B,C), Out = C."
+118. spec([apple,first,mind,meditation,apple,first,mind,music])
+   => [first,first]
+119. run([sort,sort,sort,count], [3,3])
+   => [2]
+120. clause_text(algo, [sort])
+   => "algo(A,Out) :- step(sort,A,B), Out = B."
+121. spec([count,reverse,logic,order,sum,meditation,reverse])
+   => [count,reverse,sort,sum,reverse]
+122. run([unique], [9])
+   => [9]
+123. clause_text(algo, [unique,first,sort])
+   => "algo(A,Out) :- step(unique,A,B), step(first,B,C), step(sort,C,D), Out = D."
+124. spec([music,reverse,reverse,meditation,mind,last])
+   => [reverse,reverse,last]
+125. run([first,sum,double,double], [1])
+   => [4]
+126. clause_text(algo, [count,count,count,last])
+   => "algo(A,Out) :- step(count,A,B), step(count,B,C), step(count,C,D), step(last,D,E), Out = E."
+127. spec([apple,reverse,logic,time,order,time,logic,idea])
+   => [reverse,sort]
+128. run([sum], [9,5])
+   => [14]
+129. clause_text(algo, [reverse,last])
+   => "algo(A,Out) :- step(reverse,A,B), step(last,B,C), Out = C."
+130. spec([apple,double])
+   => [double]
+131. run([sum,double], [8])
+   => [16]
+132. clause_text(algo, [reverse])
+   => "algo(A,Out) :- step(reverse,A,B), Out = B."
+133. spec([last,reverse,time,first,apple,mind,music,sort])
+   => [last,reverse,first,sort]
+134. run([sort], [5,3,5,0,4])
+   => [0,3,4,5,5]
+135. clause_text(algo, [sort,sort])
+   => "algo(A,Out) :- step(sort,A,B), step(sort,B,C), Out = C."
+136. spec([unique,meditation,logic])
+   => [unique]
+137. run([double,sort,first,first], [9,1,2,2,0])
+   => [0]
+138. clause_text(algo, [sort])
+   => "algo(A,Out) :- step(sort,A,B), Out = B."
+139. spec([unique,idea,count,last,first,last])
+   => [unique,count,last,first,last]
+140. run([sort,sort,sum,unique,sum,sort], [2])
+   => [2]
+141. clause_text(algo, [count,unique,double])
+   => "algo(A,Out) :- step(count,A,B), step(unique,B,C), step(double,C,D), Out = D."
+142. spec([meditation,last,music,sum,double,order])
+   => [last,sum,double,sort]
+143. run([first,sort], [])
+   => []
+144. clause_text(algo, [first,double,sum])
+   => "algo(A,Out) :- step(first,A,B), step(double,B,C), step(sum,C,D), Out = D."
+145. spec([first,idea,first,reverse,double,idea,logic,last])
+   => [first,first,reverse,double,last]
+146. run([sort,first,sum,first], [])
+   => [0]
+147. clause_text(algo, [unique,unique,sort,last])
+   => "algo(A,Out) :- step(unique,A,B), step(unique,B,C), step(sort,C,D), step(last,D,E), Out = E."
+148. spec([last,unique,last])
+   => [last,unique,last]
+149. run([], [6])
+   => [6]
+150. clause_text(algo, [sort,unique,unique])
+   => "algo(A,Out) :- step(sort,A,B), step(unique,B,C), step(unique,C,D), Out = D."
+151. spec([mind,sum])
+   => [sum]
+152. run([double,count,count,unique], [])
+   => [1]
+153. clause_text(algo, [first,last,unique])
+   => "algo(A,Out) :- step(first,A,B), step(last,B,C), step(unique,C,D), Out = D."
+154. spec([last,sort,music,meditation,double,meditation,mind,time])
+   => [last,sort,double]
+155. run([], [0,9,1,4])
+   => [0,9,1,4]
+156. clause_text(algo, [sum,sort])
+   => "algo(A,Out) :- step(sum,A,B), step(sort,B,C), Out = C."
+157. spec([sort,time,meditation,order,unique,logic,music])
+   => [sort,sort,unique]
+158. run([double,sort,count,sort], [1,0])
+   => [2]
+159. clause_text(algo, [sort,double])
+   => "algo(A,Out) :- step(sort,A,B), step(double,B,C), Out = C."
+160. spec([sum,sum,apple])
+   => [sum,sum]
+161. run([sort,reverse], [1,4,3])
+   => [4,3,1]
+162. clause_text(algo, [count,unique])
+   => "algo(A,Out) :- step(count,A,B), step(unique,B,C), Out = C."
+163. spec([meditation,double,order])
+   => [double,sort]
+164. run([reverse,last], [])
+   => []
+165. clause_text(algo, [reverse])
+   => "algo(A,Out) :- step(reverse,A,B), Out = B."
+166. spec([music,sum])
+   => [sum]
+167. run([sum], [2,9,5,7])
+   => [23]
+168. clause_text(algo, [first,first])
+   => "algo(A,Out) :- step(first,A,B), step(first,B,C), Out = C."
+169. spec([idea,count,sum,unique,order,unique,double,count])
+   => [count,sum,unique,sort,unique,double,count]
+170. run([double,first,double], [4,3,1,5])
+   => [16]
+171. clause_text(algo, [last,sum])
+   => "algo(A,Out) :- step(last,A,B), step(sum,B,C), Out = C."
+172. spec([sort,double,sort,sum,music,mind,unique,double])
+   => [sort,double,sort,sum,unique,double]
+173. run([sum,first], [7,0,4,6])
+   => [17]
+174. clause_text(algo, [unique,sort,double,reverse,sum,sort])
+   => "algo(A,Out) :- step(unique,A,B), step(sort,B,C), step(double,C,D), step(reverse,D,E), step(sum,E,F), step(sort,F,G), Out = G."
+175. spec([music,logic,mind,double,meditation,meditation])
+   => [double]
+176. run([reverse,first], [7,2,5,8])
+   => [8]
+177. clause_text(algo, [reverse,sum,double])
+   => "algo(A,Out) :- step(reverse,A,B), step(sum,B,C), step(double,C,D), Out = D."
+178. spec([reverse,apple])
+   => [reverse]
+179. run([sum,double], [1])
+   => [2]
+180. clause_text(algo, [sort,unique,double,double])
+   => "algo(A,Out) :- step(sort,A,B), step(unique,B,C), step(double,C,D), step(double,D,E), Out = E."
+181. spec([idea])
+   => []
+182. run([last], [9,3,0,0,8])
+   => [8]
+183. clause_text(algo, [])
+   => "algo(A,Out) :- true, Out = A."
+184. spec([apple,meditation,music,reverse,sort,reverse,meditation,unique])
+   => [reverse,sort,reverse,unique]
+185. run([sum,count,sum,sum,reverse], [8,3,9])
+   => [1]
+186. clause_text(algo, [sort])
+   => "algo(A,Out) :- step(sort,A,B), Out = B."
+187. spec([order,meditation,music,meditation,double,time,reverse,apple])
+   => [sort,double,reverse]
+188. run([sort,last,count], [4,4,8,0])
+   => [1]
+189. clause_text(algo, [double,count])
+   => "algo(A,Out) :- step(double,A,B), step(count,B,C), Out = C."
+190. spec([last,logic,unique])
+   => [last,unique]
+191. run([], [1,4,1])
+   => [1,4,1]
+192. clause_text(algo, [count])
+   => "algo(A,Out) :- step(count,A,B), Out = B."
+193. spec([apple,sort,count,first,idea,count])
+   => [sort,count,first,count]
+194. run([last,first,sort,count,sort,sort], [3,3,6,8,4])
+   => [1]
+195. clause_text(algo, [sort])
+   => "algo(A,Out) :- step(sort,A,B), Out = B."
+196. spec([sum,mind,music])
+   => [sum]
+197. run([], [5,3,9])
+   => [5,3,9]
+198. clause_text(algo, [])
+   => "algo(A,Out) :- true, Out = A."
+199. spec([idea,count,sort,sum,apple,first])
+   => [count,sort,sum,first]
+200. run([double,count,first], [])
+   => [0]
